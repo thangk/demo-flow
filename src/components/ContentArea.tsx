@@ -5,21 +5,21 @@ import { format } from 'date-fns'
 import ToggleButton from "./ToggleButton";
 
 interface FlowForm {
-    uid?: string,
+    uid?: string,                   // auto set by mongodb
 
-    date: string,
-    time: string,
-    location: string,
+    date: string,                   // auto set to date of flow submission
+    time: string,                   // auto set to time of flow submission
+    location: string,               // hardcoded with "BB Cafe"
 
-    instructor_ga: string,
-    instructor_ga_fname: string,
-    instructor_ga_lname: string,
-    uwindid: string
-    uwindemail: string,
-    department: string,
-    faculty: string,
+    instructor_ga: string,          // to be dynamically generated or grabbed from MS Graph
+    instructor_ga_fname: string,    // to be dynamically generated or grabbed from MS Graph
+    instructor_ga_lname: string,    // to be dynamically generated or grabbed from MS Graph
+uwindid: string                     // to be inputted by CTL staff
+    uwindemail: string,             // to be dynamically generated or grabbed from MS Graph
+    department: string,             // to be dynamically generated or grabbed from MS Graph
+    faculty: string,                // to be dynamically generated or grabbed from MS Graph
 
-    majortopics: string[]
+    majortopics: string[]           
     desc?: string,
 
     followupemail: boolean,
@@ -38,7 +38,8 @@ const ContentArea = () => {
 
     const [formObj, setFormObject] = useState<FlowForm>(
         {
-            instructor_ga: "",
+            
+            uwindid: "",
             majortopics: [],
             desc: "",
             multitopic: false,
@@ -50,9 +51,10 @@ const ContentArea = () => {
             location: "BB Cafe",
             department: 'School of Dramatic Arts',
             faculty: 'FAHSS',
+            instructor_ga: "Instructor One",
             instructor_ga_fname: "Instructor",
             instructor_ga_lname: "One",
-            uwindid: "",
+            
             uwindemail: "instructor1@uwindsor.ca",
             followupemail: false,
         })
@@ -62,7 +64,7 @@ const ContentArea = () => {
     const handleFlowAdd = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        alert(JSON.stringify(formObj, null, 4))
+        console.log(JSON.stringify(formObj, null, 4))
     }
 
 
@@ -115,7 +117,7 @@ const ContentArea = () => {
                     {/* make this asterisk a requirement toggle in admin settings */}
                     <h2 className="contentarea__subheading">Instructor/GA Name <span className="text-red-500">*</span></h2>
                     {/* will need to make this placeholder dynamic */}
-                    <textarea rows={5} cols={102} name='instructor_ga'
+                    <textarea rows={5} cols={102} name='uwindid'
                     placeholder="Please enter Instructor/GA's Full name or the UWIN ID. You can find the UWIN from the dashboard." 
                     onChange={(e: FormEvent<HTMLTextAreaElement>) => handleOnChange(e, 'text')}>
                         
