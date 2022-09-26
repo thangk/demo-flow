@@ -7,24 +7,25 @@ import ToggleButton from "./ToggleButton";
 interface FlowForm {
     uid?: string,                   // auto set by mongodb
 
+    // to be inputted by CTL staff
+    uwindid: string                 
+    majortopics: string[]           
+    desc?: string,
+    followupemail: boolean,
+    multitopic: boolean,
+    vdropsupp: boolean
+
     date: string,                   // auto set to date of flow submission
     time: string,                   // auto set to time of flow submission
-    location: string,               // hardcoded with "BB Cafe"
+    location: string,               // hardcoded with "BB Cafe" for the time being
 
     instructor_ga: string,          // to be dynamically generated or grabbed from MS Graph
     instructor_ga_fname: string,    // to be dynamically generated or grabbed from MS Graph
     instructor_ga_lname: string,    // to be dynamically generated or grabbed from MS Graph
-uwindid: string                     // to be inputted by CTL staff
     uwindemail: string,             // to be dynamically generated or grabbed from MS Graph
     department: string,             // to be dynamically generated or grabbed from MS Graph
     faculty: string,                // to be dynamically generated or grabbed from MS Graph
 
-    majortopics: string[]           
-    desc?: string,
-
-    followupemail: boolean,
-    multitopic: boolean,
-    vdropsupp: boolean
 
 }
 
