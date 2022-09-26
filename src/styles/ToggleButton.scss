@@ -1,0 +1,24 @@
+$toggle-bg-on: blue;
+$toggle-bg-off: darkgrey;
+$toggle-controlknob-colour: white;
+$toggle-width: 100px;
+$toggle-height: 50px;
+$toggle-gutter: 5px;
+$toggle-radius: 50%;
+$toggle-control-speed: .15s;
+$toggle-control-ease: ease-in;
+
+$toggle-radius: $toggle-height;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);
+
+.togglebutton___control {
+    @apply block relative pl-[$toggle-width] mb-[22px];
+
+    input {
+        @apply absolute opacity-0 cursor-pointer h-0 w-0;
+    }
+
+    input:checked ~ .togglebutton___controlknob {
+        @apply bg-white;
+    }
+}

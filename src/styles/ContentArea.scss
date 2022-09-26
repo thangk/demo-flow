@@ -1,0 +1,81 @@
+.contentarea__wrapper {
+    @apply p-12 flex flex-col gap-12 h-fit;
+
+
+
+    .contentarea__title {
+        @apply text-3xl;
+    }
+
+    .contentarea__body {
+        @apply flex flex-col gap-12;
+
+        .contentarea__subbody {
+            @apply flex flex-col gap-2;
+        }
+
+        textarea {
+            @apply bg-[#F4F4F4] border-r-amber-400
+        }
+    }
+}
+
+.topics__list {
+    @apply flex flex-col gap-6;
+}
+
+.topic__item {
+    @apply flex gap-2 items-center;
+
+    :hover {
+        @apply bg-[#DADADA] cursor-pointer;
+    }
+}
+
+.contentarea__subheading {
+    @apply font-bold;
+}
+
+.buttons_wrapper {
+    @apply flex gap-4;
+
+    button {
+        @apply px-4 py-1 w-fit;
+    }
+
+    #runflow {
+        @apply bg-[#0066FF] text-slate-50;
+    }
+
+    #cancelbtn {
+        @apply bg-[#EAEAEA] text-slate-900;
+    }
+}
+
+// .switch {
+//     @apply relative inline-block w-14 h-7;
+    
+//     input {
+//         @apply opacity-0 w-0 h-0;
+//     }
+// }
+
+// .slider {
+//     @apply absolute rounded-[34px] cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#CCC] transition-[0.4s];
+
+//     ::before {
+//         @apply absolute rounded-[1/2] content-["fsd"] h-7 w-7 left-1 bottom-1 bg-white transition-[0.4s];
+//     }
+// }
+
+// input:checked + .slider {
+//     @apply bg-[#2196F3];
+// }
+
+// input:focus + .slider {
+//     @apply shadow-md;
+// }
+
+// input:checked + .slider:before {
+//     @apply translate-x-7;
+// }
