@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 @import './App.scss';
+
+@import '../contents/AddFlow.scss';
+
 @import './ContentArea.scss';
 @import './ToggleButton.scss';

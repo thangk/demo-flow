@@ -1,0 +1,49 @@
+
+.addflow__body {
+    @apply flex flex-col gap-12;
+
+    .addflow__subbody {
+        @apply flex flex-col gap-2;
+    }
+
+    textarea {
+        @apply bg-[#F4F4F4] border-r-amber-400
+    }
+}
+
+
+.addflow__topics__list {
+    @apply flex flex-col gap-6;
+}
+
+.addflow__topic__item {
+    @apply flex gap-2 items-center;
+
+    label {
+        @apply px-2 rounded-md;
+    }
+
+    :hover {
+        @apply bg-[#DADADA] cursor-pointer;
+    }
+}
+
+.addflow__subheading {
+    @apply font-bold;
+}
+
+.addflow__buttons__wrapper {
+    @apply flex gap-4;
+
+    button {
+        @apply px-4 py-1 w-fit;
+    }
+
+    #runflow {
+        @apply bg-[#0066FF] hover:bg-[#0047B3] text-slate-50;
+    }
+
+    #cancelbtn {
+        @apply bg-[#EAEAEA] hover:bg-slate-300 text-slate-900;
+    }
+}
