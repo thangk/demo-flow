@@ -4,49 +4,29 @@ import { nanoid } from 'nanoid'
 import { format } from 'date-fns'
 import ToggleButton from "../components/ToggleButton";
 
+import { Flow } from "../Constants/Interfaces"
 
-interface FlowForm {
-    uid?: string,                   // auto set by mongodb
-
-    // to be inputted by CTL staff
-    uwindid: string                 
-    majortopics: string[]           
-    desc?: string,
-    followupemail: boolean,
-    multitopic: boolean,
-    vdropsupp: boolean
-
-    date: string,                   // auto set to date of flow submission
-    time: string,                   // auto set to time of flow submission
-    location: string,               // hardcoded with "BB Cafe" for the time being
-
-    instructor_ga: string,          // to be dynamically generated or grabbed from MS Graph
-    instructor_ga_fname: string,    // to be dynamically generated or grabbed from MS Graph
-    instructor_ga_lname: string,    // to be dynamically generated or grabbed from MS Graph
-    uwindemail: string,             // to be dynamically generated or grabbed from MS Graph
-    department: string,             // to be dynamically generated or grabbed from MS Graph
-    faculty: string,                // to be dynamically generated or grabbed from MS Graph
-}
 
 
 // hardcoded staff's info , this will be made dynamic in deployment version
 const teamMember = {
-    firstName: 'Member',
-    lastName: 'One'
+    firstName: 'Team',
+    lastName: 'Member1'
 }
 
 
 const AddFlow = () => {
 
-    const [formObj, setFormObject] = useState<FlowForm>(
+    const [formObj, setFormObject] = useState<Flow>(
         {
-            uwindid: "",
+            uwinid: "",
             majortopics: [],
             desc: "",
-            multitopic: false,
-            vdropsupp: false,
+            multitopics: false,
+            teamsdropin: false,
             
             // autocompleted fields
+            staff: "Staff One",
             date: format(new Date(), "cccc, MMMM d, yyyy"),
             time: format(new Date(), "h:mm:ss aa"),
             location: "BB Cafe",
@@ -56,7 +36,7 @@ const AddFlow = () => {
             instructor_ga_fname: "Instructor",
             instructor_ga_lname: "One",
             
-            uwindemail: "instructor1@uwindsor.ca",
+            uwinemail: "instructor1@uwindsor.ca",
             followupemail: false,
         })
 
@@ -162,7 +142,7 @@ const AddFlow = () => {
                     <div className="flex gap-6">
                         <div className="addflow__topic__item">
 
-                            <input type='checkbox' id='yesvdrop' name='vdropsupp' onChange={(e: FormEvent<HTMLInputElement>) => handleOnChange(e, 'radio')} />
+                            <input type='checkbox' id='yesvdrop' name='teamsdropin' onChange={(e: FormEvent<HTMLInputElement>) => handleOnChange(e, 'radio')} />
                             <label htmlFor='yesvdrop'>Yes</label>
                         </div>
 
