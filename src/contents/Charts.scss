@@ -1,0 +1,8 @@
+
+.charts__wrapper {
+    @apply flex flex-col flex-1 gap-8;
+}
+
+.achart__wrapper {
+    @apply w-full bg-[#F4F4F4] p-6 drop-shadow-md rounded-md flex flex-col gap-4;
+}

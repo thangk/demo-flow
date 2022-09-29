@@ -17,7 +17,7 @@ const MyFlows = () => {
 
             <div className='download-buttons'>
                 <button onClick={() => handleDownload("JSON")}>Download JSON</button>
-                <button><CsvDownload data={rows}>Download CSV</CsvDownload></button>
+                <CsvDownload data={rows}>Download CSV</CsvDownload>
             </div>
 
             <div className='flex flex-col w-full h-[700px]'>
