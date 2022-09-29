@@ -1,10 +1,10 @@
 import { FormEvent, useEffect, useState } from "react";
-import { topics } from "../Constants/Topics";
+import { topics } from "../hardcoded_demo/FlowTopics";
 import { nanoid } from 'nanoid'
 import { format } from 'date-fns'
 import ToggleButton from "../components/ToggleButton";
 
-import { Flow } from "../Constants/Interfaces"
+import { Flow } from "../constants/Interfaces"
 
 
 
@@ -87,7 +87,7 @@ const AddFlow = () => {
 
                 <div className="addflow__subbody">
                     {/* make this asterisk a requirement toggle in admin settings */}
-                    <h2 className="addflow__subheading">Instructor/GA Name <span className="text-red-500">*</span></h2>
+                    <h4 className="font-bold">Instructor/GA Name <span className="text-red-500">*</span></h4>
                     {/* will need to make this placeholder dynamic */}
                     <textarea rows={5} cols={102} name='uwindid'
                     placeholder="Please enter Instructor/GA's Full name or the UWIN ID. You can find the UWIN from the dashboard." 
@@ -97,7 +97,7 @@ const AddFlow = () => {
                 </div>
 
                 <div className="addflow__subbody">
-                    <h2 className="addflow__subheading">Major Topic(s)</h2>
+                    <h4 className="font-bold">Major Topic(s)</h4>
                     <div className="addflow__topics__list">
                         {topics.map(e => {
                             return (
@@ -117,7 +117,7 @@ const AddFlow = () => {
 
                 <div className="addflow__subbody">
                     {/* make this asterisk a requirement toggle in admin settings */}
-                    <h2 className="addflow__subheading">Description <span className="text-red-500">*</span></h2>
+                    <h4 className="font-bold">Description <span className="text-red-500">*</span></h4>
                     <textarea rows={5} cols={102} name='desc' placeholder="Please provide details (Example: error message, tool in course, area in course with issue, etc.)"
                     
                     onChange={(e: FormEvent<HTMLTextAreaElement>) => handleOnChange(e, 'text')}></textarea>
@@ -125,7 +125,7 @@ const AddFlow = () => {
 
 
                 <div className="addflow__subbody">
-                    <h2 className="addflow__subheading">Were mulitple topics discussed? (Y/N)</h2>
+                    <h4 className="font-bold">Were mulitple topics discussed? (Y/N)</h4>
                     
                     <div className="flex gap-6">
                         <div className="addflow__topic__item">
@@ -137,7 +137,7 @@ const AddFlow = () => {
                 </div>
 
                 <div className="addflow__subbody">
-                    <h2 className="addflow__subheading">Was this a Teams Virtual Drop In support?</h2>
+                    <h4 className="font-bold">Was this a Teams virtual Drop-in support?</h4>
                     
                     <div className="flex gap-6">
                         <div className="addflow__topic__item">
@@ -148,15 +148,14 @@ const AddFlow = () => {
 
                     </div>
 
-                    <ToggleButton />
                 </div>
 
 
                 <div className="addflow__subbody">
 
-                    <div className="addflow__buttons__wrapper">
-                        <button type="submit" id="runflow">Run flow</button>
-                        <button type="reset" id="cancelbtn">Cancel</button>
+                    <div className="flex gap-4">
+                        <button type="submit" className="btn btn-blue">Run flow</button>
+                        <button type="reset" className="btn btn-grey">Cancel</button>
                     </div>
                 </div>
 

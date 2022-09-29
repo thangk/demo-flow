@@ -1,3 +1,10 @@
+export interface DashboardCard1 {
+    title: string,
+    data: number,
+    recordTitle: string,
+    recordData: number
+}
+
 export interface Flow {
     id?: number,                   // auto set by mongodb
 

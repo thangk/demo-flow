@@ -13,13 +13,13 @@ const AdminSettingsTemplate = ({editPageTitle, editOptions}: Props) => {
 
     return (
     
-            <div className="editoptions__list">
+            <div className="flex flex-col gap-6 min-h-screen">
 
                 {editOptions.map(item => {
                     return (
-                        <div className="editoption__item" key={nanoid()}>
-                            <h1>{item}</h1>
-                            <h2>edit buttons will go here...</h2>
+                        <div className="card__settings" key={nanoid()}>
+                            <h3>{item}</h3>
+                            <h5>edit buttons will go here...</h5>
                         </div>
                     )
                 })}

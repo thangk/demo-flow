@@ -6,11 +6,7 @@
         @apply flex flex-col gap-2;
     }
 
-    textarea {
-        @apply bg-[#F4F4F4] border-r-amber-400 w-full max-w-[800px];
-    }
 }
-
 
 .addflow__topics__list {
     @apply flex flex-col gap-6;
@@ -28,22 +24,3 @@
     }
 }
 
-.addflow__subheading {
-    @apply font-bold;
-}
-
-.addflow__buttons__wrapper {
-    @apply flex gap-4;
-
-    button {
-        @apply px-4 py-1 w-fit;
-    }
-
-    #runflow {
-        @apply bg-[#0066FF] hover:bg-[#0047B3] text-slate-50;
-    }
-
-    #cancelbtn {
-        @apply bg-[#EAEAEA] hover:bg-slate-300 text-slate-900;
-    }
-}

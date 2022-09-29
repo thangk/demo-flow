@@ -1,10 +1,5 @@
 
-interface DashboardCard1 {
-    title: string,
-    data: number,
-    recordTitle: string,
-    recordData: number
-}
+import { DashboardCard1 } from './Interfaces'
 
 export const dashboardCards: DashboardCard1[] = [
     { 

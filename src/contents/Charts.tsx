@@ -1,5 +1,5 @@
 import { BarChart, ResponsiveContainer, XAxis, YAxis, Legend, Tooltip, CartesianGrid, Bar } from "recharts";
-import { sampleData } from "../Constants/SampleData";
+import { sampleData } from "../hardcoded_demo/SampleData";
 
 interface dataType {
     month: string,
@@ -114,10 +114,10 @@ const Charts = () => {
 
     return (
         <>
-            <div className="charts__wrapper">
+            <div className="flex flex-col flex-1 gap-8">
 
-                <div className="achart__wrapper">
-                    <h1 className="chartTitle">Visitors by Month</h1>
+                <div className="card__chart">
+                    <h5>Visitors by Month</h5>
 
                     <ResponsiveContainer width="100%" height={250}>
                         <BarChart 
@@ -136,8 +136,8 @@ const Charts = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <div className="achart__wrapper">
-                    <h1 className="chartTitle">Visitors by Days</h1>
+                <div className="card__chart">
+                    <h5>Visitors by Days</h5>
 
                     <ResponsiveContainer width="100%" height={250}>
                         <BarChart 
@@ -156,8 +156,8 @@ const Charts = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <div className="achart__wrapper">
-                    <h1 className="chartTitle">Frequency by Department</h1>
+                <div className="card__chart">
+                    <h5>Frequency by Department</h5>
 
                     <ResponsiveContainer width="100%" height={250}>
                         <BarChart 

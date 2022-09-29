@@ -1,8 +1,8 @@
 
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { sampleData } from '../Constants/SampleData'
+import { sampleData } from '../hardcoded_demo/SampleData'
 import { nanoid } from 'nanoid';
-import { Flow } from '../Constants/Interfaces';
+import { Flow } from '../constants/Interfaces';
 import CsvDownload from 'react-json-to-csv'
 
 export const columns: GridColDef[] = [
@@ -71,9 +71,9 @@ const ManageData = () => {
 
     return (
         <>
-            <div className='download-buttons'>
-                <button onClick={() => handleDownload("JSON")}>Download JSON</button>
-                <CsvDownload data={rows}>Download CSV</CsvDownload>
+            <div className='btns__wrapper'>
+                <button className='btn btn-blue' onClick={() => handleDownload("JSON")}>Download JSON</button>
+                <CsvDownload className='btn btn-blue' data={rows}>Download CSV</CsvDownload>
             </div>
 
             <div className='flex flex-col w-full h-[700px]'>

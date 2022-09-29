@@ -1,5 +1,5 @@
 
-import { Flow } from './Interfaces'
+import { Flow } from '../constants/Interfaces'
 
 export const sampleData: Flow[] = 
 [

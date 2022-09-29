@@ -1,6 +1,6 @@
 
-import { dashboardCards } from "../Constants/DashboardCards";
-
+import { dashboardCards } from "../constants/DashboardCards";
+import { demoUser } from "../hardcoded_demo/DemoUserInfo";
 
 const Dashboard = () => {
 
@@ -8,15 +8,15 @@ const Dashboard = () => {
 
     return (
         <>
-            <h1>Welcome, Team Member1!</h1>
+            <h5>Welcome, {demoUser.firstName} {demoUser.lastName}!</h5>
 
-            <div className="dashboardcards__wrapper">
+            <div className="flex flex-row gap-6 justify-between min-h-screen">
                 {dashboardCards.map(item => {
                     return (
-                        <div className="dashboardcard__item" key={item.title}>
-                            <h1>{item.title}</h1>
-                            <h2>{item.data}</h2>
-                            <h3>{item.recordTitle}{item.recordData}</h3>
+                        <div className="card__dashboard" key={item.title}>
+                            <h2>{item.title}</h2>
+                            <h1>{item.data}</h1>
+                            <h5>{item.recordTitle}{item.recordData}</h5>
                         </div>
                     )
                 })}

@@ -1,0 +1,35 @@
+// Colours setup
+$blue: '#005596';
+$blue_hover: '#03406F';
+$grey: '#EAEAEA';
+$grey_hover: '#DADADA';
+
+
+
+
+// TailwindCSS classes
+$btn-blue-text: 'text-slate-50';
+$btn-blue-bg: 'bg-[#{$blue}]';
+$btn-blue-bg-hover: 'hover:bg-[#{$blue_hover}]';
+
+$btn-grey-text: 'text-slate-800';
+$btn-grey-bg: 'bg-[#{$grey}]';
+$btn-grey-bg-hover: 'hover:bg-[#{$grey_hover}]';
+
+
+
+.btns__wrapper {
+    @apply flex gap-4;
+}
+
+.btn {
+    @apply px-4 py-1 w-fit h-fit;
+}
+
+.btn-blue {
+    @apply #{$btn-blue-text $btn-blue-bg $btn-blue-bg-hover};    
+}
+
+.btn-grey {
+    @apply #{$btn-grey-text $btn-grey-bg $btn-grey-bg-hover}; 
+}

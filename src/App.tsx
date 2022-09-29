@@ -1,9 +1,8 @@
-import './styles/App.scss'
 import ContentArea from './components/ContentArea'
 import logo from './assets/uow.png'
 import user from './assets/user.png'
 import { BsGear } from 'react-icons/bs'
-import { NavMenu } from './Constants/NavMenu'
+import { NavMenu } from './constants/NavMenu'
 import { useState } from 'react'
 
 function App() {
@@ -28,8 +27,8 @@ function App() {
         </section> */}
 
         <section className="flex-1 flex justify-end items-center gap-2">
-          <BsGear className='icons' />
-          <img src={user} alt='user pfp' className='pfp'/>
+          <BsGear className='icons' onClick={() => alert('Settings page coming soon')} />
+          <img src={user} alt='user pfp' className='pfp' onClick={() => alert('Settings page coming soon')} />
         </section>
         
       </nav>

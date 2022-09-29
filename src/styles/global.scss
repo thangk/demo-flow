@@ -2,13 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './App.scss';
+@import '../App.scss';
 
 @import '../contents/AddFlow.scss';
-@import '../contents/ManageData.scss';
-@import '../contents/Dashboard.scss';
-@import '../contents/Charts.scss';
-@import '../contents/AdminSettingsTemplate.scss';
 
-@import './ContentArea.scss';
-@import './ToggleButton.scss';
+@import './buttons.scss';
+@import './labels.scss';
+@import './cards.scss';
+
+
+
+
+textarea {
+    @apply rounded-md bg-[#F4F4F4] max-w-[800px] w-full;
+}
+
+select {
+    @apply rounded-md;
+
+    option {
+        @apply leading-5;
+    }
+}
+
+input[type='checkbox'] {
+    @apply rounded-sm;
+}

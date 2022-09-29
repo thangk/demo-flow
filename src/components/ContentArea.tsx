@@ -7,9 +7,9 @@ interface Props {
 const ContentArea = ({pagetitle, content}: Props ) => {
 
     return (
-        <main className="contentarea__wrapper">
+        <main className="p-12 flex flex-col gap-12 w-full h-fit">
             
-            <h1 className="contentarea__title">{pagetitle}</h1>
+            <h2>{pagetitle}</h2>
 
             {content}
 
