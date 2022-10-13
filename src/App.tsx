@@ -1,4 +1,4 @@
-import ContentArea from './components/ContentArea'
+import ContentArea from './views/ContentArea'
 import logo from './assets/uow.png'
 import user from './assets/user.png'
 import { BsGear } from 'react-icons/bs'
