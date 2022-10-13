@@ -59,9 +59,11 @@ const AdminSettings = () => {
 
     return (
         <>
-            <form id="adminsettings" onSubmit={handleSubmit}>
+            <form className="relative" id="adminsettings" onSubmit={handleSubmit}>
 
                 {showModal && <div className="adminsettings__newform__modal" ref={modalRef}>
+
+                    {/* <div className="w-full h-full absolute top-0 backdrop-blur-[5px] rounded-xs"></div> */}
 
                     <div className="top">
                         <h3>New Form</h3>
@@ -92,46 +94,38 @@ const AdminSettings = () => {
                             <div className="item">
 
                             <div className="row">
-                                <label htmlFor="name" id="name">Elements:</label>
+                                <label htmlFor="name" id="name">Sections:</label>
                                 <button id="name" className="element__item rounded-md w-fit h-fit py-1 px-10">
                                 Add
                                 </button>
                             </div>
 
                             <div className="element">
-                                <h5>Instructor's Name</h5>
-                                <h5>Checkbox</h5>
+                                <h6>Instructor's Name</h6>
+                                <h6>Text</h6>
                             </div>
 
                             <div className="element">
-                                <h5>Major Topic(s)</h5>
-                                <h5>Textarea</h5>
+                                <h6>Major Topic(s)</h6>
+                                <h6>Checkbox</h6>
                             </div>
 
                             <div className="element">
-                                <h5>Teams Drop-in</h5>
-                                <h5>Checkbox</h5>
+                                <h6>Description</h6>
+                                <h6>Textarea</h6>
                             </div>
 
                             <div className="element">
-                                <h5>Follow-up Email</h5>
-                                <h5>Checkbox</h5>
+                                <h6>Teams Drop-in</h6>
+                                <h6>T/F</h6>
                             </div>
 
                             <div className="element">
-                                <h5>Follow-up Email</h5>
-                                <h5>Checkbox</h5>
+                                <h6>Follow-up Email</h6>
+                                <h6>T/F</h6>
                             </div>
 
-                            <div className="element">
-                                <h5>Follow-up Email</h5>
-                                <h5>Checkbox</h5>
-                            </div>
 
-                            <div className="element">
-                                <h5>Follow-up Email</h5>
-                                <h5>Checkbox</h5>
-                            </div>
 
                             </div>
                         </div>
@@ -139,7 +133,7 @@ const AdminSettings = () => {
 
                     <div className="btn-wrapper">
                         <div className="flex flex-1 justify-end">
-                            <button className="btn btn-blue" type="submit">Add</button>
+                            <button className="btn btn-blue" type="submit">Create</button>
                         </div>
                         <div className="flex flex-1">
                             <button className="btn btn-blue" onClick={() => setShowModal(!showModal)}>Cancel</button>
