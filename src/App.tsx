@@ -2,7 +2,7 @@ import ContentArea from './components/ContentArea'
 import logo from './assets/uow.png'
 import user from './assets/user.png'
 import { BsGear } from 'react-icons/bs'
-import { NavMenu } from './constants/NavMenu'
+import { NavMenu } from './hardcoded_demo/NavMenu'
 import { useState } from 'react'
 
 function App() {

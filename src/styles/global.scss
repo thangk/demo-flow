@@ -5,6 +5,7 @@
 @import '../App.scss';
 
 @import '../contents/AddFlow.scss';
+@import '../contents/AdminSettings.scss';
 
 @import './buttons.scss';
 @import './labels.scss';
@@ -27,4 +28,8 @@ select {
 
 input[type='checkbox'] {
     @apply rounded-sm;
+}
+
+input[type='text'] {
+    @apply rounded-md;
 }

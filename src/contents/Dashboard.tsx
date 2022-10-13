@@ -1,10 +1,8 @@
 
-import { dashboardCards } from "../constants/DashboardCards";
+import { dashboardCards } from "../hardcoded_demo/DashboardCards";
 import { demoUser } from "../hardcoded_demo/DemoUserInfo";
 
 const Dashboard = () => {
-
-    
 
     return (
         <>

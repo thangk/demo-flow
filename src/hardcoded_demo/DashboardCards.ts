@@ -1,5 +1,5 @@
 
-import { DashboardCard1 } from './Interfaces'
+import { DashboardCard1 } from '../constants/Interfaces'
 
 export const dashboardCards: DashboardCard1[] = [
     { 

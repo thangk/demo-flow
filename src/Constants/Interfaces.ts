@@ -1,3 +1,27 @@
+
+
+
+export interface FormElement {
+    id: number,
+    formType: string,
+    title: string,
+    placeholder: string,
+    isRequired: boolean,
+    helpInfo: string,
+    formId: number
+    form: Form,
+}
+
+export interface Form {
+    id: number,
+    title: string,
+    description: string,
+    formElement: FormElement[],
+    isDefault: boolean,
+}
+
+
+
 export interface DashboardCard1 {
     title: string,
     data: number,

@@ -13,7 +13,7 @@ const AdminSettings = () => {
     const [editOptions, setEditOptions] = useState(adminSettingsList[0].options)
 
     // temp
-    const [isFormPage, setIsFormPage] = useState(false)
+    const [isFormPage, setIsFormPage] = useState(true)
     
     const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
 
@@ -38,27 +38,87 @@ const AdminSettings = () => {
         }
     }
 
+    const handleDrag = () => {
+        alert('hi')
+    }
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <>
             <form id="adminsettings">
 
-                
+                <div className="adminsettings__newform__modal">
 
-                <select name="adminsettings-list" id="adminsettings-list" onChange={handleOnChange}>
-                    {adminSettingsList.map(item => {
-                        return (
-                            <option id={item.name.toLowerCase().split(" ").join("")} key={nanoid()} value={item.name}>{item.name}</option>
-                        )
-                    })}
-                </select>
+                    
+                    <h3>New form</h3>
+
+                    <div className="item">
+                        <label htmlFor="name" id="name">Name:</label>
+                        <input type="text" id="name" />
+                    </div>
+
+                    <div className="item">
+                        <label htmlFor="name" id="name">Description:</label>
+                        <input type="text" id="name" />
+                    </div>
+
+                    <div className="item2">
+
+
+                    <div className="row">
+                        <label htmlFor="name" id="name">Elements:</label>
+                        <button id="name" className="element__item">
+                        Add
+                        </button>
+                    </div>
+
+                    <div className="element">
+                        <h5>Instructor's Name</h5>
+                        <h5>Checkbox</h5>
+                    </div>
+
+                    <div className="element">
+                        <h5>Major Topic(s)</h5>
+                        <h5>Textarea</h5>
+                    </div>
+
+                    <div className="element">
+                        <h5>Teams Drop-in</h5>
+                        <h5>Checkbox</h5>
+                    </div>
+
+                    <div className="element">
+                        <h5>Follow-up Email</h5>
+                        <h5>Checkbox</h5>
+                    </div>
+
+                    </div>
+
+
+                </div>
+
+                {adminSettingsList.map(item => {
+                
+                return (
+
+                <div className="flex justify-between" key={nanoid()}>
+                    
+                    <select name="adminsettings-list" id="adminsettings-list" onChange={handleOnChange}>
+                                <option id={item.name.toLowerCase().split(" ").join("")} value={item.name}>{item.name}</option>
+                    </select>
+                    <div className="btns__wrapper">
+                        {item.options.map(ops => <button key={nanoid()} onClick={ops.action} className="btn btn-blue">{ops.label}</button>)}
+                    </div>
+                </div>
+                )
+                })}
             </form>
 
-            {isFormPage && <div className="btns__wrapper">
-                <button className="btn btn-blue">Create form</button>
-                <button className="btn btn-blue">Multi-Delete forms</button>
-            </div>}
 
-            <AdminSettingsTemplate editPageTitle={editPageTitle} editOptions={editOptions} />
+            <AdminSettingsTemplate editOptions={editOptions} />
 
         </>
     )};

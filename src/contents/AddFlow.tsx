@@ -2,8 +2,6 @@ import { FormEvent, useEffect, useState } from "react";
 import { topics } from "../hardcoded_demo/FlowTopics";
 import { nanoid } from 'nanoid'
 import { format } from 'date-fns'
-import ToggleButton from "../components/ToggleButton";
-
 import { Flow } from "../constants/Interfaces"
 
 
@@ -39,7 +37,6 @@ const AddFlow = () => {
             uwinemail: "instructor1@uwindsor.ca",
             followupemail: false,
         })
-
     
 
     const handleFlowAdd = (e: FormEvent<HTMLFormElement>) => {
@@ -92,7 +89,7 @@ const AddFlow = () => {
                     <textarea rows={5} cols={102} name='uwindid'
                     placeholder="Please enter Instructor/GA's Full name or the UWIN ID. You can find the UWIN from the dashboard." 
                     onChange={(e: FormEvent<HTMLTextAreaElement>) => handleOnChange(e, 'text')}>
-                        
+                    
                     </textarea>
                 </div>
 

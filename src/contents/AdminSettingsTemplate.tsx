@@ -2,12 +2,16 @@
 import { nanoid } from 'nanoid'
 
 interface Props {
-    editPageTitle: string,
-    editOptions: string[]
+    editOptions: 
+        {
+            label: string,
+            action: () => void
+        }[]
+    
 }
 
 
-const AdminSettingsTemplate = ({editPageTitle, editOptions}: Props) => {
+const AdminSettingsTemplate = ( {editOptions}: Props) => {
 
     
 
@@ -18,7 +22,7 @@ const AdminSettingsTemplate = ({editPageTitle, editOptions}: Props) => {
                 {editOptions.map(item => {
                     return (
                         <div className="card__settings" key={nanoid()}>
-                            <h3>{item}</h3>
+                            <h3>{item.label}</h3>
                             <h5>edit buttons will go here...</h5>
                         </div>
                     )
