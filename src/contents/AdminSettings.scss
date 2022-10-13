@@ -2,14 +2,14 @@
 
 .adminsettings__newform__modal {
 
-    @apply absolute flex flex-col gap-6 shadow-lg bg-slate-50 top-[25%] left-[50%] -translate-x-[50%] p-6 rounded-md w-[25%] items-center py-12;
+    @apply absolute flex flex-col gap-6 shadow-lg bg-slate-50 top-[25%] left-[50%] -translate-x-[50%] p-6 rounded-md min-w-[350px] w-[600px] border border-[#005596] items-center py-12;
 
     h3 {
         @apply text-center;
     }
 
-    .item {
-        @apply flex flex-col gap-2;
+    .btn-wrapper {
+        @apply flex gap-2 w-full;
     }
 
     input {
@@ -22,18 +22,30 @@
         
     }
 
-    .item2 {
-        @apply flex flex-col gap-2;
+    .bottom {
+        @apply flex gap-12;
+
+        .left {
+            @apply flex flex-col gap-6;
+        }
+
+        
     }
+
+    .item {
+        @apply flex flex-col gap-2;
+
+        textarea, input[type="text"] {
+            @apply bg-[#E2E8F0];
+        }
+    }
+
 
     .row {
         @apply flex flex-row justify-between gap-8;
     }
 
-    button {
-        @apply w-fit h-fit py-1 px-10 rounded-md;
-    }
-
+    
     .element {
         @apply w-[13rem] bg-slate-200 hover:bg-slate-300 hover:cursor-pointer p-2 rounded-md flex justify-between;
     }
