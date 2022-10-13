@@ -8,7 +8,7 @@ export interface FormElement {
     placeholder: string,
     isRequired: boolean,
     helpInfo: string,
-    formId: number
+    formId: number,
     form: Form,
 }
 
@@ -38,7 +38,7 @@ export interface Flow {
     desc?: string,
     followupemail: boolean,
     multitopics: boolean,
-    teamsdropin: boolean
+    teamsdropin: boolean,
 
     date: string,                   // auto set to date of flow submission
     time: string,                   // auto set to time of flow submission
