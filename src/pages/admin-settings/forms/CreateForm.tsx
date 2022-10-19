@@ -194,33 +194,38 @@ const CreateForm = () => {
                     <label className="flex justify-end min-w-[128px]">Set as Default? <Helpbox message="Setting this default will automatically load this form on Add Flow page" />:</label>
                     <input type='checkbox' className="hover:cursor-pointer" ref={formDefaultRef} />
                 </div>
-                <div className="flex gap-6 items-center">
+                <div className="flex gap-6">
                     
-                        <label className="flex justify-end min-w-[128px]">Add Section:</label>
-                        <div className="flex gap-2 items-center">
-                            <input type="text" placeholder="Enter a new section name" ref={sectionNameRef} />
-                            
+                        <label className="flex justify-end min-w-[128px] items-start py-2">Add Section:</label>
+
+                        <div className="flex flex-col gap-2">
+
+                            <div className="flex gap-2 items-center">
+                                <input type="text" placeholder="Enter a new section name" ref={sectionNameRef} />
+                                
+                                <select className="min-w-[100px]" ref={sectionTypeRef} onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+                                    if (e.currentTarget.value === 'text') {
+                                        setShowPlaceHolderInputState('block')
+                                    }
+                                    if (e.currentTarget.value === 'checkbox') {
+                                        setShowPlaceHolderInputState('hidden')
+                                    }
+                                    }}>
+                                    <option value='checkbox'>Checkbox</option>
+                                    <option value='text'>Text</option>
+                                </select>
+
+                                <select className="min-w-[100px]" ref={sectionIsReqRef}>
+                                    <option value='req'>Required</option>
+                                    <option value='nreq'>Not Req</option>
+                                </select>
+
+                                <button className="btn btn-blue" onClick={handleAddSection}>Add Section</button>
+                            </div>
+
                             <input className={showPlaceHolderInputState} type="text" placeholder="Add a place holder text (can be empty)" ref={sectionPlaceHolderRef} />
-
-                            <select className="min-w-[100px]" ref={sectionTypeRef} onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-                                if (e.currentTarget.value === 'text') {
-                                    setShowPlaceHolderInputState('block')
-                                }
-                                if (e.currentTarget.value === 'checkbox') {
-                                    setShowPlaceHolderInputState('hidden')
-                                }
-                                }}>
-                                <option value='checkbox'>Checkbox</option>
-                                <option value='text'>Text</option>
-                            </select>
-
-                            <select className="min-w-[100px]" ref={sectionIsReqRef}>
-                                <option value='req'>Required</option>
-                                <option value='nreq'>Not Req</option>
-                            </select>
-
-                            <button className="btn btn-blue" onClick={handleAddSection}>Add Section</button>
                         </div>
+
                 </div>
                 <div className="flex gap-6 items-start">
                     <label className="flex justify-end min-w-[128px] pt-2">Sections <Helpbox message={"Click on the + sign to add items to the sections or click on the pen to edit a section's name"} />:</label>
