@@ -1,59 +1,53 @@
-import ContentArea from './views/ContentArea'
-import logo from './assets/uow.png'
-import user from './assets/user.png'
-import { BsGear } from 'react-icons/bs'
-import { NavMenu } from './hardcoded_demo/NavMenu'
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import ErrorPage from './pages/ErrorPage'
+
+import Layout from './components/Layout'
+import Login from './pages/Login'
+import UserProfileSettings from './pages/UserProfileSetting'
+import AddFlow from './pages/AddFlow'
+import AdminSettings from './pages/admin-settings/AdminSettings'
+import Charts from './pages/Charts'
+import AdminSettings_Charts from './pages/admin-settings/charts/AdminSettings_Charts'
+import Dashboard from './pages/Dashboard'
+import ManageData from './pages/ManageData'
+import MyFlows from './pages/MyFlows'
+import CreateForm from './pages/admin-settings/forms/CreateForm'
+import EditForm from './pages/admin-settings/forms/EditForm'
+import Forms from './pages/admin-settings/forms/Forms'
 
 function App() {
 
-  const [pagetitle, setPageTitle] = useState(NavMenu[0].name)
-  const [content, setContent] = useState(NavMenu[0].content)
-
-  const handleChangeTab = (e: React.MouseEvent<HTMLDivElement>, name: string, newContent: JSX.Element) => {
-    setPageTitle(name)
-    setContent(newContent)
-  }
 
   return (
-    <main className="main__wrapper">
-      <nav className="topnav__wrapper">
-        <section className="flex-1 flex justify-start">
-          <img src={logo} alt='uwindsor logo' />
-        </section>
+    
+    <Routes>
+        {/* public routes */}
+        <Route path='login' element={<Login />} />
+      
+        <Route path='/' element={<Layout />}>
 
-        {/* <section className='flex-1 flex justify-center items-center'>
-          <input type='text' placeholder='Search' className='searchbar' />
-        </section> */}
+        {/* protected routes */}
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/profile' element={<UserProfileSettings />} />
+        <Route path='/add-flow' element={<AddFlow />} />
+        <Route path='/my-flows' element={<MyFlows />} />
+        <Route path='/charts' element={<Charts />} />
+        <Route path='/manage-data' element={<ManageData />} />
 
-        <section className="flex-1 flex justify-end items-center gap-2">
-          <BsGear className='icons' onClick={() => alert('Settings page coming soon')} />
-          <img src={user} alt='user pfp' className='pfp' onClick={() => alert('Settings page coming soon')} />
-        </section>
-        
-      </nav>
 
-      <div className="bottomportion__wrapper">
+        <Route path='/admin-settings' element={<AdminSettings />} >
+          <Route path='/admin-settings/forms' element={<Forms />} />
+          <Route path='/admin-settings/forms/create-form' element={<CreateForm />} />
+          <Route path='/admin-settings/forms/edit-form/:name' element={<EditForm />} />
 
-          <nav className="leftnav__wrapper">
-            {NavMenu.map(e => {
-              return(
-                <div className='nav__item' key={e.name} onClick={(el: React.MouseEvent<HTMLDivElement>) => handleChangeTab(el, e.name, e.content)}>
-                  <div className='nav__menuicon'>
-                    {e.icon}</div>
-                  <div className='nav__menuname'>
-                    {e.name}
-                  </div>
-                </div>
-              )
-            })}
+          <Route path='/admin-settings/charts' element={<AdminSettings_Charts />} />
+        </Route>
 
-          </nav>
+        {/* 404 error route */}
+        <Route path='*' element={<ErrorPage />} />
 
-          <ContentArea pagetitle={pagetitle} content={content} />
-      </div>
-
-    </main>
+      </Route>
+    </Routes>
   )
 }
 

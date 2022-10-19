@@ -1,13 +1,8 @@
 
-
 .card__dashboard {
-    @apply shadow-md w-fit min-h-fit h-[225px] border p-6 text-center flex-1 rounded-xl flex flex-col justify-between gap-4 hover:bg-[#FAFAFA] hover:cursor-pointer;
+    @apply shadow-md min-w-fit min-h-fit h-[225px] border p-6 text-center flex-1 rounded-xl flex flex-col justify-between gap-4 hover:bg-[#FAFAFA] hover:cursor-pointer;
 }
 
 .card__chart {
     @apply w-full p-6 shadow-md border rounded-xl flex flex-col gap-4;
-}
-
-.card__settings {
-    @apply flex flex-col px-4 py-4 bg-[#F4F4F4] border rounded-md shadow-md;
 }

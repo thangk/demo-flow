@@ -1,18 +1,18 @@
+
+import AdminSettings_Charts from "../pages/admin-settings/charts/AdminSettings_Charts"
+import AdminSettiings_Forms from "../pages/admin-settings/forms/Forms"
+
+
 export const adminSettingsList = [
     { name: "Forms",
-    options: [
-        {   
-            label: "Add",
-            action: () => { alert('hi')}
-        },
-        {   
-            label: "Multi-Delete",
-            action: () => { alert('delete button')}
-        },
-        
-        // "Edit an existing form",
-        // "Delete a form"
-    ]},
+        fc: <AdminSettiings_Forms />
+    },
+    { name: "Charts",
+        fc: <AdminSettings_Charts />
+    },
+
+
+
     // { name: "Form Categories",
     // options: [
     //     "Add a new form category",

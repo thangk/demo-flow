@@ -1,41 +1,41 @@
 import { BiHome, BiCheckCircle, BiBarChart, BiCylinder, BiChart, BiPlus, BiSlider } from 'react-icons/bi'
 import { MdOutlineDashboard } from 'react-icons/md'
-import AddFlow from '../contents/AddFlow'
-import AdminSettings from '../contents/AdminSettings'
-import Charts from '../contents/Charts'
-import Dashboard from '../contents/Dashboard'
-import ManageData from '../contents/ManageData'
-import MyFlows from '../contents/MyFlows'
+import AddFlow from '../pages/AddFlow'
+import AdminSettings from '../pages/admin-settings/AdminSettings'
+import Charts from '../pages/Charts'
+import Dashboard from '../pages/Dashboard'
+import ManageData from '../pages/ManageData'
+import MyFlows from '../pages/MyFlows'
 
 export const NavMenu = [
     {
         name: 'Dashboard',
         icon: <MdOutlineDashboard />,
-        content: <Dashboard />
+        link: '/'
     },
     {
         name: 'Add flow',
         icon: <BiPlus />,
-        content: <AddFlow />
+        link: '/add-flow'
     },
     {
         name: 'My flows',
         icon: <BiChart />,
-        content: <MyFlows />
+        link: '/my-flows'
     },
     {
         name: 'Charts',
         icon: <BiBarChart />,
-        content: <Charts />
+        link: '/charts'
     },
     {
         name: 'Manage Data',
         icon: <BiCylinder />,
-        content: <ManageData />
+        link: '/manage-data'
     },
     {
         name: 'Admin Settings',
         icon: <BiSlider />,
-        content: <AdminSettings />
+        link: '/admin-settings'
     }
 ]

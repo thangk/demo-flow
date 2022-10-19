@@ -1,22 +1,20 @@
 
 
 
-export interface FormElement {
-    id: number,
-    formType: string,
-    title: string,
+export interface FormSection {
+    id: string,
+    name: string,
+    type: string,
     placeholder: string,
     isRequired: boolean,
-    helpInfo: string,
-    formId: number,
-    form: Form,
+    items: string[]
 }
 
 export interface Form {
-    id: number,
-    title: string,
+    id: string,
+    name: string,
     description: string,
-    formElement: FormElement[],
+    sections: FormSection[],
     isDefault: boolean,
 }
 

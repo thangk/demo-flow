@@ -19,17 +19,25 @@ $btn-grey-bg-hover: 'hover:bg-[#{$grey_hover}]';
 
 
 .btns__wrapper {
-    @apply flex gap-4;
+    @apply flex gap-4 items-center;
 }
 
 .btn {
-    @apply px-4 py-1 w-fit h-fit;
+    @apply px-4 py-1 min-w-max h-fit;
 }
 
 .btn-blue {
-    @apply #{$btn-blue-text $btn-blue-bg $btn-blue-bg-hover};    
+    @apply text-slate-50 bg-[#005596] hover:bg-[#03406F];    
 }
 
 .btn-grey {
-    @apply #{$btn-grey-text $btn-grey-bg $btn-grey-bg-hover}; 
+    @apply text-slate-800 bg-[#EAEAEA] hover:bg-[#DADADA]; 
 }
+
+// .btn-blue {
+//     @apply #{$btn-blue-text $btn-blue-bg $btn-blue-bg-hover};    
+// }
+
+// .btn-grey {
+//     @apply #{$btn-grey-text $btn-grey-bg $btn-grey-bg-hover}; 
+// }

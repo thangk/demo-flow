@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../App.scss';
 
 @import '../contents/AddFlow.scss';
 @import '../contents/AdminSettings.scss';
@@ -15,7 +14,7 @@
 
 
 textarea {
-    @apply rounded-md bg-[#F4F4F4] max-w-[800px] w-full;
+    @apply rounded-md w-[485px] min-h-[100px];
 }
 
 select {
@@ -30,6 +29,6 @@ input[type='checkbox'] {
     @apply rounded-sm;
 }
 
-input[type='text'] {
-    @apply rounded-md;
+input[type='text'], input[type='password'] {
+    @apply rounded-md w-[485px];
 }
