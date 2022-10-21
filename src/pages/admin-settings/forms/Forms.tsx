@@ -70,7 +70,7 @@ const FormsList = () => {
                         <section className="flex gap-4">
                         
                             <MdOutlineStar 
-                            className={`text-3xl ${form.isDefault ? `opacity-100` : `opacity-25`} hover:opacity-100`} onClick={() => handleSetDefault(form.id)} />
+                            className={`text-3xl ${form.isDefault ? `opacity-100` : `opacity-10`} hover:opacity-100`} onClick={() => handleSetDefault(form.id)} />
                             <MdEdit className="text-3xl opacity-25 hover:opacity-100" onClick={() => navigate(`${location.pathname}/edit-form/${form.name}`)} />
                             <MdDelete className="text-3xl opacity-25 hover:opacity-100" onClick={() => handleDeleteForm(form.id)} />
                         </section>

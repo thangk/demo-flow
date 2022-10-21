@@ -60,6 +60,8 @@ const AddFlow = () => {
         e.preventDefault()
 
         console.log(JSON.stringify(formObj, null, 4))
+
+        alert("Flow submitted! It doesn't go anywhere right now but, when live, the submissions will be sent to the database and can be viewed from the table in Manage Data tab on the left.")
     }
 
     const handleOnChange = (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>, type: string) => {

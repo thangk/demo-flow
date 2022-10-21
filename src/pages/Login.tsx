@@ -35,7 +35,7 @@ const Login = () => {
                     </div>
                 </section>
 
-                <button className="bg-slate-200 w-fit text-[#005596] px-16 py-2 place-self-center shadow-2xl hover:shadow-none hover:bg-blue-300 hover:text-blue-800 font-bold rounded-md" type='submit'>Login</button>
+                <button className="bg-slate-200 w-fit text-[#005596] px-16 py-2 place-self-center shadow-2xl hover:shadow-none hover:bg-blue-300 hover:text-blue-800 hover:scale-[103%] font-bold rounded-md" type='submit'>Login</button>
 
             </form>
 

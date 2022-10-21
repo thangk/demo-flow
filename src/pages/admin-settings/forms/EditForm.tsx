@@ -248,7 +248,7 @@ const EditForm = ({ idToUpdate }: EditFormProps) => {
                                         {item.type.toLowerCase() !== 'text' ? 
                                         
                                         <MdAdd className="min-w-fit opacity-25 hover:opacity-100" onClick={() => handleAddItem(item)} />
-                                        : '' }
+                                        : '' }l
 
                                         <MdDelete className="min-w-fit opacity-25 hover:opacity-100" onClick={() => handleDeleteSection(item.name)} />
                                     </div>
