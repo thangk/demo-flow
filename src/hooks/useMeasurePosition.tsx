@@ -14,7 +14,7 @@ interface Props {
 const useMeasurePosition = ({ update } : Props) => {
 
     
-    const ref = useRef(null)
+    const ref = useRef<HTMLElement>(null)
 
     useEffect(() => {
         update({
