@@ -4,15 +4,16 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { adminSettingsList } from "../../hardcoded_demo/AdminSettingsList";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 
 
 const AdminSettings = () => {
 
     const [currentPage, setCurrentPage] = useState(adminSettingsList[0].name)
 
-
     const navigate = useNavigate()
+
+    const location = useLocation()
     
 
    
@@ -21,9 +22,12 @@ const AdminSettings = () => {
         navigate(`${e.target.value.toLowerCase()}`)
     }
 
+    
     useEffect(() => {
-        navigate(`${adminSettingsList[0].name.toLowerCase()}`, {replace: true})
-    }, [])
+        if (location.pathname === '/admin-settings') {
+            navigate(`${adminSettingsList[0].name.toLowerCase()}`, {replace: true})
+        }
+    }, [location.pathname])
 
 
     return (
@@ -32,16 +36,16 @@ const AdminSettings = () => {
             {/* the dropdown menu */}
             <select className="w-fit" name="adminsettings-list" id="adminsettings-list" onChange={handleOnChange} value={currentPage}>
 
-                {adminSettingsList.map(item => {
+            {adminSettingsList.map(item => {
 
-                    return (
-                        <option id={item.name.toLowerCase().split(" ").join("")} value={item.name} key={nanoid()}>{item.name}</option>
-                    )
-                })}
+                return (
+                    <option id={item.name.toLowerCase().split(" ").join("")} value={item.name} key={nanoid()}>{item.name}</option>
+                )
+            })}
+
             </select>
 
-        <Outlet />
-
+            <Outlet />
         </main>
     )};
 

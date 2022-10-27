@@ -8,7 +8,7 @@ const Dashboard = () => {
         <>
             <h5>Welcome, {demoUser.firstName} {demoUser.lastName}!</h5>
 
-            <div className="flex flex-row gap-6 justify-between min-h-screen">
+            <div className="flex flex-row flex-wrap gap-6 justify-between min-h-screen">
                 {dashboardCards.map(item => {
                     return (
                         <div className="card__dashboard" key={item.title}>

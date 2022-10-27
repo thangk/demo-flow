@@ -53,11 +53,8 @@ const FormsList = () => {
     
         <div className="flex flex-col gap-4">
 
-            <Reorder.Group transition={{ duration: 5}} className="flex flex-col gap-4" values={forms} onReorder={setForms}>
             {forms.length ? forms.map(form => {
                 return (
-                    <Reorder.Item  key={nanoid()} value={form}>
-
                     
                     <div className="flex justify-between p-4 bg-[#F4F4F4] hover:bg-[#DADADA] hover:cursor-pointer hover:border-[#DADADA] border rounded-md shadow-md" key={nanoid()}>
                         {/* name and desc */}
@@ -75,10 +72,8 @@ const FormsList = () => {
                             <MdDelete className="text-3xl opacity-25 hover:opacity-100" onClick={() => handleDeleteForm(form.id)} />
                         </section>
                     </div>
-                    </Reorder.Item>
                 )
             }) : <h5>There are no forms yet. Create one.</h5>}
-            </Reorder.Group>
             
         </div>
     )
