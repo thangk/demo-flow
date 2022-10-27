@@ -5,16 +5,16 @@ interface Position {
     height: number
 }
 
-interface Props {
+interface Props2 {
     update: (position: Position) => void
 }
 
 
 
-const useMeasurePosition = ({ update } : Props) => {
+const useMeasurePosition = ({ update } : any) => {
 
     
-    const ref = useRef<HTMLElement>(null)
+    const ref = useRef<any>(null)
 
     useEffect(() => {
         update({

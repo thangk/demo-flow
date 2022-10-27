@@ -22,15 +22,23 @@ const findIndex = (i: number, yOffset: number, positions: Position[]) : number =
     // if moving down
     if (yOffset > 0) {
         const nextItem = positions[i + 1]
-        if (nextItem === undefined) return 1
+        if (nextItem === undefined) return i
 
         const swapOffset = distance(bottom, nextItem.top + nextItem.height / 2 + buffer)
         if (yOffset > swapOffset) target = i + 1
+
+
+        // if moving up
+    } else if (yOffset < 0) {
+        const prevItem = positions[i - 1]
+        if (prevItem === undefined) return i
+
+        const prevBottom = prevItem.top + prevItem.height
+        const swapOffset = distance(top, prevBottom - prevItem.height / 2) + buffer
+        if (yOffset < -swapOffset) target = i - 1
     }
 
-    // if moving up
-
-    return 1
+    return clamp(0, positions.length, target)
 }
 
 
@@ -44,9 +52,10 @@ const usePositionReorder = (initialState: Form) => {
 
     const updateOrder = (i: number, dragOffset: number) => {
         const targetIndex = findIndex(i, dragOffset, positions)
-
         if (targetIndex !== i) setOrder(arrayMoveImmutable(order, i, targetIndex))
     }
+
+    return [order, updatePosition, updateOrder]
 };
 
 export default usePositionReorder;
