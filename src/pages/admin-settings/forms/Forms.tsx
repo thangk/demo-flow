@@ -14,6 +14,9 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 import { Reorder } from 'framer-motion'
 
+import useMeasurePosition from "../../../hooks/useMeasurePosition"
+import usePositionReorder from "../../../hooks/usePositionReorder"
+
 
 const FormsList = () => {
 
@@ -49,17 +52,26 @@ const FormsList = () => {
 
 
 
+
     return (
     
         <div className="flex flex-col gap-4">
 
-            <Reorder.Group transition={{ duration: 5}} className="flex flex-col gap-4" values={forms} onReorder={setForms}>
+            
+            <Reorder.Group values={forms} onReorder={setForms}>
+
+
+
+            
+
+
             {forms.length ? forms.map(form => {
                 return (
-                    <Reorder.Item  key={nanoid()} value={form}>
 
-                    
-                    <div className="flex justify-between p-4 bg-[#F4F4F4] hover:bg-[#DADADA] hover:cursor-pointer hover:border-[#DADADA] border rounded-md shadow-md" key={nanoid()}>
+                    <Reorder.Item value={form} key={nanoid()}>
+
+
+                    <div className="flex justify-between p-4 bg-[#F4F4F4] hover:bg-[#DADADA] hover:cursor-pointer hover:border-[#DADADA] border rounded-md shadow-md">
                         {/* name and desc */}
                         <section>
                             <h3>{form.name}</h3>
@@ -75,10 +87,19 @@ const FormsList = () => {
                             <MdDelete className="text-3xl opacity-25 hover:opacity-100" onClick={() => handleDeleteForm(form.id)} />
                         </section>
                     </div>
+
                     </Reorder.Item>
                 )
-            }) : <h5>There are no forms yet. Create one.</h5>}
+            }) 
+            
+            
+            : <h5>There are no forms yet. Create one.</h5>}
+
+
             </Reorder.Group>
+
+
+            
             
         </div>
     )
