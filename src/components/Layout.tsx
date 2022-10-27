@@ -21,12 +21,7 @@ const Layout = () => {
 
     return (
         
-        <motion.div
-        // initial={{ opacity: 0, y: '100%' }}
-        // animate={{ opacity: 1, y: '0%' }}
-        // transition={{ duration: 1.5, type: 'spring' }}
-        
-        >
+        <div>
 
             <main className="main__wrapper">
                 <motion.nav
@@ -35,22 +30,25 @@ const Layout = () => {
                 transition={{ duration: 1.0, type: 'tween' }}
                 
                 className="bg-[#005596] h-14 w-full flex justify-between pl-2 pr-2">
+                    {/* uwindsor logo banner */}
                     <section className="flex-1 flex justify-start">
                         <Link to='/'>
                             <img src={logo} alt='uwindsor logo' />
                         </Link>
                     </section>
 
+                    {/* user prpofile area */}
                     <section className="flex-1 flex justify-end items-center gap-2">
-                                            
                         <Link to='/profile' className='w-14'>
                             <img src={user} alt='user pfp' className='rounded-full object-contain hover:cursor-pointer w-fit h-full p-2' />
                         </Link>
                     </section>
                 </motion.nav>
 
+                {/* bottom portion */}
                 <div className="flex w-full h-full">
 
+                    {/* the left nav menu */}
                     <motion.nav
                     initial={{ opacity: 1, x: '-100%' }}
                     animate={{ opacity: 1, x: '0%' }}
@@ -67,6 +65,7 @@ const Layout = () => {
                     })}
                     </motion.nav>
 
+                    {/* the right content area portion */}
                     <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1}}
@@ -81,7 +80,7 @@ const Layout = () => {
                 </div>
 
             </main>
-        </motion.div>
+        </div>
 
     )};
 
