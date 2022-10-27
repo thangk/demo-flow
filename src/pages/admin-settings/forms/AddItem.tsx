@@ -5,6 +5,35 @@ import { FormSection } from "../../../constants/Interfaces"
 
 import { AnimatePresence, motion } from 'framer-motion'
 
+
+
+const CRUDVariants = {
+
+    ini: {
+        opacity: 0,
+        y: -10
+    },
+
+    add: {
+        opacity: 1, 
+        y: 0,
+        transition: { 
+            duration: 0.5, 
+            type: "spring", 
+            stiffness: 500
+        },
+    },
+
+    delete: {
+        opacity: 0,
+        scale: 0.75,
+        transition: { 
+            duration: 0.25, 
+        },
+    }
+}
+
+
 interface Props {
     setShowAddItemModal: React.Dispatch<React.SetStateAction<boolean>>,
     setCurrentSection: React.Dispatch<React.SetStateAction<FormSection>>,
@@ -23,12 +52,22 @@ const AddItem = ({ setShowAddItemModal, setCurrentSection, currentSection, updat
 
         if (!newItem) return
 
-        console.log(newItem)
-
         setCurrentSection(prev => ({...prev, items: [...prev.items, newItem]}))
 
         addItemRef.current!.value = ''
         setNewItem('')
+    }
+
+    // const handleDeleteItem = (item: string) => {
+    //     setCurrentSection(prev => ({...prev, items: prev.items.filter(curr => curr !== item)}))
+    // }
+
+    const handleDeleteItem = (idx: number) => {
+
+        console.log(idx)
+
+        // doesn't work well
+        setCurrentSection(prev => ({...prev, items: prev.items.splice(idx, 1) }))
     }
 
     const handleSaveItems = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -61,22 +100,36 @@ const AddItem = ({ setShowAddItemModal, setCurrentSection, currentSection, updat
  
             <div className="flex flex-col gap-2">
 
-                {currentSection.items.length ? currentSection.items.map(item => {
+                <AnimatePresence>
+                {currentSection.items.length ? currentSection.items.map((item, idx) => {
                     return (
 
-                <motion.div 
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, type: "spring", stiffness: 500 }}>
+                // <motion.div 
+                //     initial={{ opacity: 0, y: -10 }}
+                //     animate={{ opacity: 1, y: 0 }}
+                //     exit={{ opacity: 0, scaleY: 0 }}
+                //     transition={{ duration: 0.5, type: "spring", stiffness: 500 }}
+                //     key={idx}
+                // >
 
-                <div className="bg-[#DADADA] px-3 py-2 flex justify-between gap-2 relative">
-                    <MdDragIndicator className="absolute -left-6 place-self-center h-full text-2xl hover:cursor-move" onClick={() => alert('hi')} key={nanoid()} />
-                    <h5>{item}</h5>
-                    <div><MdDelete className="h-full place-self-center text-lg hover:cursor-pointer" /></div>
-                </div>
+                <motion.div 
+                    variants={CRUDVariants}
+                    initial='ini'
+                    animate='add'
+                    exit='delete'
+                    key={idx}
+                >
+
+                    <div className="bg-[#DADADA] px-3 py-2 flex justify-between gap-2 relative">
+                        <MdDragIndicator className="absolute -left-6 place-self-center h-full text-2xl hover:cursor-move" onClick={() => alert('hi')} />
+                        <h5>{item}</h5>
+                        <div><MdDelete className="h-full place-self-center text-lg hover:cursor-pointer" onClick={() => handleDeleteItem(idx)} /></div>
+                    </div>
                 </motion.div>
+                
                     )
                 }) : <h5 className="place-self-center">No items yet</h5>}
+                </AnimatePresence>
             </div>
 
 
